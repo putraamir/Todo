@@ -69,36 +69,38 @@ const HomeScreen = () => {
       {!Loading ? (
         <Animated.View
           style={[animatedStyles]}
-          className="absolute bg-[#00ADB5] h-1/2 w-full -bottom-[500px] rounded-t-[44px] z-10"
+          className="flex absolute bg-[#00ADB5] h-1/2 w-full pb-12 -bottom-[1000px] rounded-t-[44px] z-20"
         >
           <Text className="text-3xl text-white font-bold mx-auto mt-12">
             Add Task
           </Text>
 
-          <View className="flex-col mt-12 mx-8">
+          <View className="mt-12 mx-8 flex-1">
             <Text className="text-white text-2xl font-bold text-center">
               Title
             </Text>
-            <TextInput
-              className="bg-white w-max h-14 rounded-3xl mt-3 text-center"
-              editable
-              placeholder="Eg. (Grocery Shopping)"
-              keyboardType="default"
-              value={title}
-              onChangeText={(value) => setTitle(value)}
-            />
+            <View>
+              <TextInput
+                className="bg-white w-max h-14 rounded-3xl mt-3 text-center"
+                placeholder="Eg. (Grocery Shopping)"
+                keyboardType="default"
+                editable
+                value={title}
+                onChangeText={(value) => setTitle(value)}
+              />
+            </View>
           </View>
 
-          <View className="flex-row mx-auto pt-36 space-x-8">
+          <View className="flex-row mx-auto pt-24 space-x-8">
             <TouchableOpacity
-              className="bg-[#E56868] py-5 px-16 rounded-3xl"
+              className="bg-[#E56868] py-3 px-12 rounded-3xl"
               onPress={() => (offset.value = 0)}
             >
               <Text className="text-white font-bold text-xl">Cancel</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
-              className="bg-white py-5 px-16 rounded-3xl"
+              className="bg-white py-3 px-12 rounded-3xl"
               onPress={() => {
                 if (title != "") {
                   todoRef.add({
@@ -135,7 +137,7 @@ const HomeScreen = () => {
         <View className="flex-row-reverse">
           <TouchableOpacity
             className="bottom-24 mr-7 bg-[#00ADB5] p-4 rounded-full border-white border-2"
-            onPress={() => (offset.value = -450)}
+            onPress={() => (offset.value = -1000)}
           >
             <FloatingAddButton />
           </TouchableOpacity>
