@@ -11,6 +11,12 @@ const LoginScreen = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  useEffect(() => {
+    if (firebase.auth().currentUser) {
+      navigation.navigate("Home");
+    }
+  }, []);
+
   return (
     <View className="h-full w-full bg-[#222831] flex">
       <SafeAreaView>

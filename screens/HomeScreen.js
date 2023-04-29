@@ -24,6 +24,7 @@ const HomeScreen = () => {
   const getFirebaseData = () => {
     setLoading(true);
     todoRef
+      .where("uid", "==", firebase.auth().currentUser.uid)
       .orderBy("date")
       .get()
       .then((tasks) => {
@@ -107,6 +108,7 @@ const HomeScreen = () => {
                     title: title,
                     status: false,
                     date: new Date(),
+                    uid: firebase.auth().currentUser.uid,
                   });
                   offset.value = 0;
                   setTitle("");
